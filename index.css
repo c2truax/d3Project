@@ -3,4 +3,10 @@
 } */
 body {
     background-color: rgb(208, 209, 203);
+    /* margin: 40px 130px; */
+}
+div#text {
+    height: 670px;
+    display: inline-block;
+    vertical-align: top;
 }

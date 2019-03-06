@@ -1,6 +1,7 @@
 // $(window).on("load", function() {
 //   $("#mapid").height($(window).height()).width($(window).width());
 // }).trigger("resize");
+var results = [];
 var data = {name:"home",children:[
   {name:"FLORAL",children:[
     {name:"BLACK TEA",size:1},
@@ -259,7 +260,7 @@ const root = partition(data);
 root.each(d => d.current = d);
 
 const svg = d3.select('svg')
-    .style("width", "100%")
+    .style("width", "65%")
     .style("height", "670px")
     .style("font", "10px sans-serif");
 
@@ -313,6 +314,9 @@ const parent = g.append("circle")
 
 function clicked(p) {
   console.log(p.data.name);
+  results.push(p.data.name);
+  $( "#results" ).append( "<p>" + p.data.name + "</p>" );
+  
   parent.datum(p.parent || root);
   
   root.each(d => d.target = {
